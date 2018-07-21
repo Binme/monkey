@@ -1,0 +1,91 @@
+<div id="menu">
+<div class="table-pro">
+  <h1>Manager Menu</h1>
+  <div class="option-menu">
+    Options: <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Create</button>
+  </div>
+  <ul>
+    <li><div class="danger" style="padding: 4px 12px!important;">
+        <p>TRANG CHỦ <button style="width:auto;">Edit</button>
+          <button style="width:auto;">Delete</button></p>
+      </div>
+    </li>
+    <li><div class="danger" style="padding: 4px 12px!important;">
+        <p>GIỚI THIỆU <button style="width:auto;">Edit</button>
+          <button style="width:auto;">Delete</button></p>
+      </div>
+    </li>
+    <li><div class="danger" style="padding: 4px 12px!important;">
+        <p>TIN TỨC LÀM ĐẸP <button style="width:auto;">Edit</button>
+          <button style="width:auto;">Delete</button></p>
+      </div>
+      <ul>
+          <li><a><div class="danger" style="padding: 4px 12px!important;">
+              <p>BÍ QUYẾT LÀM ĐẸP</p>
+            </div></a></li>
+          <li><a><div class="danger" style="padding: 4px 12px!important;">
+              <p>BÍ QUYẾT LÀM TRẮNG DA</p>
+            </div></a></li>
+            <li><a><div class="danger" style="padding: 4px 12px!important;">
+                <p>BÍ QUYẾT TRANG ĐIỂM</p>
+              </div></a></li>  
+      </ul>
+    </li>
+    <li><div class="danger" style="padding: 4px 12px!important;">
+        <p>HƯỚNG DẪN MUA HÀNG <button style="width:auto;">Edit</button>
+          <button style="width:auto;">Delete</button></p>
+      </div>
+    </li>
+    <li><div class="danger" style="padding: 4px 12px!important;">
+        <p>LIÊN HỆ <button style="width:auto;">Edit</button>
+          <button style="width:auto;">Delete</button></p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <span onclick="document.getElementById('id01').style.display='none'" 
+    class="close" title="Close Modal">&times;</span>
+    <div class="container">
+      <label for="uname"><b>Title</b></label>
+      <input type="text" name="title" required>
+
+      <label for="psw">Href<b></b></label>
+      <input type="text" name="href" required>
+        
+      <button type="submit" style="width: 80px">Submit</button>
+
+    </div>
+  </form>
+</div>
+
+<nav>
+  <ul class="bang" style="margin-bottom: 80px;">
+        <li><a href="index.html"> TRANG CHỦ</a></li>
+        <li><a href="gioithieu.html">GIỚI THIỆU</a></li>
+        <li><a href="tintuc.html">TIN TỨC LÀM ĐẸP</a>
+              <ul>
+                    <li><a href="lamdep.html">BÍ QUYẾT LÀM ĐẸP</a></li>
+                    <li><a href="trangda.html">BÍ QUYẾT LÀM TRẮNG DA </a></li>
+                    <li><a href="trangdiem.html">BÍ QUYẾT TRANG ĐIỂM</a></li>
+              </ul>
+        </li>
+        <li><a href="huongdan.html">HƯỚNG DẪN MUA HÀNG</a></li>
+        <li><a href="lienhe.html">LIÊN HỆ</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>

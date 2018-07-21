@@ -1,0 +1,9 @@
+<nav class="navbar navbar-light bg-light justify-content-between" style="background-color:#f42b5d!important;color: #fff!important;">
+  <a class="navbar-brand" routerLink="/">HOME</a>
+  <div>
+    <a class="navbar-brand" routerLink="login" *ngIf="!loggedIn">Login</a>
+    <a class="navbar-brand" href="#" (click)="logout($event)" *ngIf="loggedIn">Logout</a>
+    <a class="navbar-brand" routerLink="profile" *ngIf="loggedIn">Dashboard</a>
+  </div>
+
+</nav>

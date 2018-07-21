@@ -1,0 +1,31 @@
+footer{
+	clear:both;
+}
+.ketthuc{
+	font-weight:bold;
+	font-size:20px;
+}
+.ketthuc a{
+	text-decoration:none;
+	color:#5561ba;
+	text-transform:uppercase;
+}
+footer b{
+	text-transform:uppercase;
+	color:#808080;
+	font-size:18px;
+}
+footer p{
+	font-style:italic;
+	color:#000;
+	font-weight:bold;
+}
+.chuchay1{
+	background-color:#f42b5d;
+	color:#FFF;
+	text-transform:uppercase;
+	height:40px;
+	line-height:40px;
+	font-size:24px;
+	border-radius:10px;
+}

@@ -1,0 +1,69 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+*{
+	margin:0px;
+	padding:0px;
+}
+body{
+	background-image:url(../../../assets/Picture/background.jpg);
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+	font-family:"Times New Roman", Times, serif;
+}
+#menu{
+	width:960px;
+	margin:0 auto;
+}
+header{
+	position:relative;
+}
+.menu{
+	position:absolute;
+	top:0px;
+	right:0px;
+}
+nav>ul>li{
+	display:inline-block;
+	position:relative;
+	}
+	
+nav>ul>li>a{
+	display:block;
+	text-decoration:none;
+	padding:0 15px;
+	line-height:50px;
+	color:white;
+	font-weight:bold;
+	}
+nav>ul>li>a:hover{
+	color:#FF0;
+}
+nav>ul{
+	padding:0px;
+	margin:0px;
+	list-style:none;
+	border-radius:10px;
+	background-color:#f73969;
+	text-align:center;
+	} 		
+nav ul ul{
+	position:absolute;
+	display:none;
+	padding:0px;
+	margin:0px;
+	list-style:none;
+	width:250px;
+	}
+nav ul ul a{
+	display:block;
+	line-height:30px;
+	background-color:#f73969;
+	color:white;
+	font-weight:bold;
+	text-decoration:none;
+	padding:10px 10px;}  	
+nav > ul > li:hover>ul{
+	display:block;
+}	
+nav ul ul a:hover{
+	color:#FF0;
+}
