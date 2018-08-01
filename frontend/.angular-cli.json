@@ -6,7 +6,7 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "dist",
+      "outDir": "../backend/public/dist",
       "assets": [
         "assets",
         "favicon.ico"
@@ -22,7 +22,7 @@
         "../node_modules/ng-snotify/styles/material.css",
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": ["../node_modules/jquery/dist/jquery.min.js"],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

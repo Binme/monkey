@@ -26,13 +26,15 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 button {
-    background-color: #2196F3;
+    background-color: #005995;
     color: white;
-    padding: 5px 10px;
+    padding: 2.5px 5px;
     margin: 8px 5px;
     border: none;
     cursor: pointer;
     width: 100%;
+    font-size: 12px;
+    border-radius: 5px
 }
 
 button:hover {
@@ -173,7 +175,8 @@ nav ul ul a{
 	text-decoration:none;
 	padding:10px 10px;}  	
 nav > ul > li:hover>ul{
-	display:block;
+    display:block;
+    margin-left: -40px;
 }	
 nav ul ul a:hover{
 	color:#FF0;
@@ -181,7 +184,7 @@ nav ul ul a:hover{
 ul li{
     list-style:none;
 }
-li{
+.table-pro>ul>li>ul>li{
     margin-left: 30px;
 }
 ul>li>a{

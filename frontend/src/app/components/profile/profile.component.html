@@ -1,91 +1,147 @@
 <div id="menu">
-<div class="table-pro">
-  <h1>Manager Menu</h1>
-  <div class="option-menu">
-    Options: <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Create</button>
+<div class="table-pro" *ngIf="Menus">
+    <h1>Manager Menu</h1>
+    <div class="option-menu">
+      Options: <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Create</button>
+    </div>
+    <ul *ngFor="let menu of Menus">
+      <li><div class="danger" style="padding: 4px 12px!important;">
+          <p>{{menu.title}} <button style="width:auto;"
+            onclick="document.getElementById('id02').style.display='block';
+            document.getElementById('DetailId').value = this.value"
+             value="{{menu.id}}" >Create</button>
+            
+            <button style="width:auto;"
+            onclick = "document.getElementById('id03').style.display='block';
+            document.getElementById('EditId').value = this.value"
+            value="{{menu.id}}">Edit</button>
+
+             <button style="width:auto;" (click) = "deleteMenu(menu.id)"
+             >Delete</button></p>
+        </div>
+        <ul *ngIf="menu.detail">
+            <li *ngFor="let detail of menu.detail"><a><div class="danger" style="padding: 4px 12px!important;">
+                <p>{{detail.title}}<button style="width:auto;"
+                  onclick = "document.getElementById('id04').style.display='block';
+                  document.getElementById('EditDetailId').value = this.value"
+                  value="{{detail.id}}">Edit</button>
+
+                  <button style="width:auto;" (click) = "deleteDetailMenu(detail.id)"
+                  >Delete</button></p>
+              </div></a></li>
+        </ul>
+      </li>
+    </ul>
   </div>
-  <ul>
-    <li><div class="danger" style="padding: 4px 12px!important;">
-        <p>TRANG CHỦ <button style="width:auto;">Edit</button>
-          <button style="width:auto;">Delete</button></p>
-      </div>
-    </li>
-    <li><div class="danger" style="padding: 4px 12px!important;">
-        <p>GIỚI THIỆU <button style="width:auto;">Edit</button>
-          <button style="width:auto;">Delete</button></p>
-      </div>
-    </li>
-    <li><div class="danger" style="padding: 4px 12px!important;">
-        <p>TIN TỨC LÀM ĐẸP <button style="width:auto;">Edit</button>
-          <button style="width:auto;">Delete</button></p>
-      </div>
-      <ul>
-          <li><a><div class="danger" style="padding: 4px 12px!important;">
-              <p>BÍ QUYẾT LÀM ĐẸP</p>
-            </div></a></li>
-          <li><a><div class="danger" style="padding: 4px 12px!important;">
-              <p>BÍ QUYẾT LÀM TRẮNG DA</p>
-            </div></a></li>
-            <li><a><div class="danger" style="padding: 4px 12px!important;">
-                <p>BÍ QUYẾT TRANG ĐIỂM</p>
-              </div></a></li>  
-      </ul>
-    </li>
-    <li><div class="danger" style="padding: 4px 12px!important;">
-        <p>HƯỚNG DẪN MUA HÀNG <button style="width:auto;">Edit</button>
-          <button style="width:auto;">Delete</button></p>
-      </div>
-    </li>
-    <li><div class="danger" style="padding: 4px 12px!important;">
-        <p>LIÊN HỆ <button style="width:auto;">Edit</button>
-          <button style="width:auto;">Delete</button></p>
-      </div>
-    </li>
-  </ul>
-</div>
 
 <div id="id01" class="modal">
-  
-  <form class="modal-content animate" action="/action_page.php">
+  <!-- <form class="modal-content animate" action="/action_page.php"> -->
+  <form #createForm=ngForm (ngSubmit)="onSubmit()" class="modal-content animate">
     <span onclick="document.getElementById('id01').style.display='none'" 
     class="close" title="Close Modal">&times;</span>
+    <h2>Create New menu</h2>
+    <input type="hidden" name="id" [(ngModel)]="form.id">
     <div class="container">
       <label for="uname"><b>Title</b></label>
-      <input type="text" name="title" required>
+      <input type="text" name="title" [(ngModel)]="form.title" placeholder="Trang Chu" required>
 
       <label for="psw">Href<b></b></label>
-      <input type="text" name="href" required>
+      <input type="text" name="href" [(ngModel)]="form.href" placeholder="https://www.google.com/" required>
         
-      <button type="submit" style="width: 80px">Submit</button>
+      <button type="submit" style="width: 80px" [disabled]="!createForm.valid" 
+      onclick="document.getElementById('id01').style.display='none'">Submit</button>
 
     </div>
   </form>
 </div>
 
-<nav>
-  <ul class="bang" style="margin-bottom: 80px;">
-        <li><a href="index.html"> TRANG CHỦ</a></li>
-        <li><a href="gioithieu.html">GIỚI THIỆU</a></li>
-        <li><a href="tintuc.html">TIN TỨC LÀM ĐẸP</a>
-              <ul>
-                    <li><a href="lamdep.html">BÍ QUYẾT LÀM ĐẸP</a></li>
-                    <li><a href="trangda.html">BÍ QUYẾT LÀM TRẮNG DA </a></li>
-                    <li><a href="trangdiem.html">BÍ QUYẾT TRANG ĐIỂM</a></li>
-              </ul>
-        </li>
-        <li><a href="huongdan.html">HƯỚNG DẪN MUA HÀNG</a></li>
-        <li><a href="lienhe.html">LIÊN HỆ</a></li>
-  </ul>
-</nav>
+<div id="id02" class="modal">
+  <!-- <form class="modal-content animate" action="/action_page.php"> -->
+  <form #createDetailForm=ngForm (ngSubmit)="createDetailMenu()" class="modal-content animate">
+    <span onclick="document.getElementById('id02').style.display='none'" 
+    class="close" title="Close Modal">&times;</span>
+    <h2>Create new menu detail</h2>
+    <div class="container">
+        <label for="uname"><b>Id:</b> *NOTE=(Xóa số bên dưới và điền lại)</label>
+        <input type="text" name="id" [(ngModel)]="form.id" id="DetailId" value="" required>
+      <label for="uname"><b>Title</b></label>
+      <input type="text" name="title" [(ngModel)]="form.title" placeholder="Trang Chu" required>
+
+      <label for="psw">Href<b></b></label>
+      <input type="text" name="href" [(ngModel)]="form.href" placeholder="https://www.google.com/" required>  
+      <button type="submit" style="width: 80px" [disabled]="!createDetailForm.valid" 
+      onclick="document.getElementById('id02').style.display='none'">Submit</button>
+
+    </div>
+  </form>
+</div>
+
+<div id="id03" class="modal">
+    <!-- <form class="modal-content animate" action="/action_page.php"> -->
+  <form #editForm=ngForm (ngSubmit)="editMenu()" class="modal-content animate">
+    <span onclick="document.getElementById('id03').style.display='none'" 
+    class="close" title="Close Modal">&times;</span>
+    <div class="container">
+        <h2>Edit Menu</h2>
+        <label for="uname"><b>Id:</b> *NOTE=(Xóa số bên dưới và điền lại)</label>
+      <input type="text" name="id" [(ngModel)]="form.id" id="EditId" value="" required>
+      <label for="uname"><b>Title</b></label>
+      <input type="text" name="title" [(ngModel)]="form.title" placeholder="Trang Chu" value="" required>
+
+      <label for="psw">Href<b></b></label>
+      <input type="text" name="href" [(ngModel)]="form.href" placeholder="https://www.google.com/" value="" required>  
+      <button type="submit" style="width: 80px" [disabled]="!editForm.valid" 
+      onclick="document.getElementById('id03').style.display='none'">Submit</button>
+
+    </div>
+  </form>
+</div>
+
+<div id="id04" class="modal">
+    <!-- <form class="modal-content animate" action="/action_page.php"> -->
+  <form #editDetailForm=ngForm (ngSubmit)="editDetailMenu()" class="modal-content animate">
+    <span onclick="document.getElementById('id04').style.display='none'" 
+    class="close" title="Close Modal">&times;</span>
+    <div class="container">
+        <h2>Edit Menu Detail</h2>
+      <label for="uname"><b>Id:</b> *NOTE=(Xóa số bên dưới và điền lại)</label>
+      <input type="text" name="id" [(ngModel)]="form.id" id="EditDetailId" value="" required>
+      <label for="uname"><b>Title</b></label>
+      <input type="text" name="title" [(ngModel)]="form.title" placeholder="Trang Chu" value="" required>
+
+      <label for="psw">Href<b></b></label>
+      <input type="text" name="href" [(ngModel)]="form.href" placeholder="https://www.google.com/" value="" required>  
+      <button type="submit" style="width: 80px" [disabled]="!editDetailForm.valid" 
+      onclick="document.getElementById('id04').style.display='none'">Submit</button>
+
+    </div>
+  </form>
+</div>
+
+<nav *ngIf="Menus" style="margin-bottom: 80px;">
+    <ul class="bang">
+          <li *ngFor="let menu of Menus">
+                <a href="{{menu.href}}"> {{menu.title}}</a>
+                  <ul *ngIf="menu.detail">
+                        <li *ngFor="let detail of menu.detail"><a href="{{detail.href}}">{{detail.title}}</a></li>
+                  </ul>       
+          </li>
+    </ul>
+</nav>  
 </div>
 <script>
 // Get the modal
 var modal = document.getElementById('id01');
+var modal2 = document.getElementById('id02');
+
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
-        modal.style.display = "none";
+      modal.style.display = "none";
+    }
+    if (event.target == modal2) {
+      modal2.style.display = "none";
     }
 }
 </script>

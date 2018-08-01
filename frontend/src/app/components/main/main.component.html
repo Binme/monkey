@@ -5,7 +5,7 @@
             </div>
       </header>
       <br />
-      <nav>
+      <!-- <nav>
             <ul class="bang">
                   <li><a href="index.html"> TRANG CHỦ</a></li>
                   <li><a href="gioithieu.html">GIỚI THIỆU</a></li>
@@ -19,8 +19,18 @@
                   <li><a href="huongdan.html">HƯỚNG DẪN MUA HÀNG</a></li>
                   <li><a href="lienhe.html">LIÊN HỆ</a></li>
             </ul>
-      </nav>
-                              
+      </nav> -->
+      <nav *ngIf="Menus">
+            <ul class="bang">
+                  <li *ngFor="let menu of Menus">
+                        <a href="{{menu.href}}"> {{menu.title}}</a>
+                              <ul *ngIf="menu.detail">
+                                    <li *ngFor="let detail of menu.detail"><a href="{{detail.href}}">{{detail.title}}</a></li>
+                              </ul>       
+                  </li>
+            </ul>
+      </nav>      
+      
 <article>
   <br />
   <div class="slide">

@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class JarwisService {
-  private baseUrl = 'http://danangfreewalkingtour.com/api';
+  private baseUrl = 'http://localhost:8000/api';
 
   constructor(private http: HttpClient) { }
 

@@ -161,6 +161,7 @@ nav ul ul a{
 	padding:10px 10px;}  	
 nav > ul > li:hover>ul{
 	display:block;
+	margin-left: -40px;
 }	
 nav ul ul a:hover{
 	color:#FF0;
