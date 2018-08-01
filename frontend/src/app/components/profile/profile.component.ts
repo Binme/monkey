@@ -41,7 +41,7 @@ export class ProfileComponent implements OnInit {
   // }
   
   ngOnInit() {
-    this.http.get('http://localhost:8000/api/getMenu').subscribe(data =>{
+    this.http.get('http://danangfreewalkingtour.com/api/getMenu').subscribe(data =>{
       this.Menus = data as string [];
       // console.log(data);
     });
@@ -54,14 +54,14 @@ export class ProfileComponent implements OnInit {
 
   // getProducts() {
   //   // console.log('Get Products and Update Table');
-  //   return this.http.get('http://localhost:8000/api/getMenu').subscribe(products => { 
+  //   return this.http.get('http://danangfreewalkingtour.com/api/getMenu').subscribe(products => { 
   //     this.products = products;
   //   });
   // }
 
   // showProduct(id) {
   //   console.log('Get Product ' + id);
-  //   return this.http.get('http://localhost:8000/api/getMenuById' + id).subscribe(product => {
+  //   return this.http.get('http://danangfreewalkingtour.com/api/getMenuById' + id).subscribe(product => {
   //       this.product = product;
   //       console.log(product);
   //       this.productForm.patchValue({ 
@@ -95,7 +95,7 @@ export class ProfileComponent implements OnInit {
   // }
 
   onSubmit() {
-    this.http.post('http://localhost:8000/api/createMenu',this.form).subscribe(data =>{
+    this.http.post('http://danangfreewalkingtour.com/api/createMenu',this.form).subscribe(data =>{
       // console.log(data);
       // this.router.navigateByUrl('/profile');
       this.ngOnInit();
@@ -103,35 +103,35 @@ export class ProfileComponent implements OnInit {
   }
   createDetailMenu(){
     // console.log(this.form);
-    this.http.post('http://localhost:8000/api/createMenuDetail/' +this.form.id,this.form).subscribe(data =>{
+    this.http.post('http://danangfreewalkingtour.com/api/createMenuDetail/' +this.form.id,this.form).subscribe(data =>{
       console.log(data);
       // this.router.navigateByUrl('/profile');
       this.ngOnInit();
     });
   }
   editMenu(){
-    this.http.post('http://localhost:8000/api/editMenu/' +this.form.id,this.form).subscribe(data =>{
+    this.http.post('http://danangfreewalkingtour.com/api/editMenu/' +this.form.id,this.form).subscribe(data =>{
       console.log(data);
       // this.router.navigateByUrl('/profile');
       this.ngOnInit();
     });
   }
   editDetailMenu(){
-    this.http.post('http://localhost:8000/api/editDetailMenu/' +this.form.id,this.form).subscribe(data =>{
+    this.http.post('http://danangfreewalkingtour.com/api/editDetailMenu/' +this.form.id,this.form).subscribe(data =>{
       console.log(data);
       // this.router.navigateByUrl('/profile');
       this.ngOnInit();
     });
   }
   deleteMenu(id){
-    this.http.get('http://localhost:8000/api/deleteMenu/' +id).subscribe(data =>{
+    this.http.get('http://danangfreewalkingtour.com/api/deleteMenu/' +id).subscribe(data =>{
       console.log(data);
       // this.router.navigateByUrl('/profile');
       this.ngOnInit();
     });
   }
   deleteDetailMenu(id){
-    this.http.get('http://localhost:8000/api/deleteDetailMenu/' +id).subscribe(data =>{
+    this.http.get('http://danangfreewalkingtour.com/api/deleteDetailMenu/' +id).subscribe(data =>{
       console.log(data);
       // this.router.navigateByUrl('/profile');
       this.ngOnInit();

@@ -12,7 +12,7 @@ export class MainComponent implements OnInit {
   Menus: string [];
 
   ngOnInit() {
-    this.http.get('http://localhost:8000/api/getMenu').subscribe(data =>{
+    this.http.get('http://danangfreewalkingtour.com/api/getMenu').subscribe(data =>{
       this.Menus = data as string [];
       console.log(data);
     });
